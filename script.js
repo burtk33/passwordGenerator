@@ -54,45 +54,33 @@ function generatePassword() {
 
 //function to prompt user to include lowercase characters
 function lowercaseModifier() {
-  var includeLower = prompt("Do you want the password to include lowercase letters? (y/n)?")
+  var includeLower = prompt("Do you want the password to include lowercase letters? (y/n)")
   if (includeLower === "y") {
     lowercase = true;
-  }
-  else {
-    lowercase = false;
   }
 }
 
 //function to prompt user to include upper case characters
 function uppercaseModifier() {
-  var includeUpper = prompt("Do you want the password to include uppercase letters? (y/n)?")
+  var includeUpper = prompt("Do you want the password to include uppercase letters? (y/n)")
   if (includeUpper === "y") {
     uppercase = true;
-  }
-  else {
-    uppercase = false;
   }
 }
 
 //function to prompt user to include numeric values
 function numericModifier() {
-  var includeNum = prompt("Do you want the password to include numeric values? (y/n)?")
+  var includeNum = prompt("Do you want the password to include numeric values? (y/n)")
   if (includeNum === "y") {
     numeric = true;
-  }
-  else {
-    numeric = false;
   }
 }
 
 //function to prompt user to include special characters
 function specialModifier() {
-  var includeSpecial = prompt("Do you want the password to include special characters? (y/n)?")
+  var includeSpecial = prompt("Do you want the password to include special characters? (y/n)")
   if (includeSpecial === "y") {
     special = true;
-  }
-  else {
-    special = false;
   }
 }
 
