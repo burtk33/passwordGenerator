@@ -5,6 +5,7 @@ var uppercase = false;
 var numeric = false;
 var special = false;
 var pwArray = [];
+var pwPlace = "";
 
 // Write password to the #password input
 function writePassword() {
@@ -27,7 +28,15 @@ function generatePassword() {
     numericModifier();
     specialModifier();
     addToArray();
+    for(var i =0; i<passwordLength; i++){
+      var arraySelector= Math.floor(Math.random() * pwArray.length);
+      console.log(pwArray[arraySelector]);
+      pwPlace.concat(pwArray[arraySelector]);
+    }
+    console.log(pwPlace);
+    return pwPlace;
   }
+  
 }
 
 //function to prompt user to include lowercase characters
@@ -58,7 +67,7 @@ function uppercaseModifier() {
 
 //function to prompt user to include numeric values
 function numericModifier() {
-  var includeNum = prompt("Do you want the password to include uppercase letters? (y/n)?")
+  var includeNum = prompt("Do you want the password to include numeric values? (y/n)?")
   if (includeNum === "y") {
     numeric = true;
     alert("Your generated password will include numeric values.");
@@ -88,15 +97,15 @@ function addToArray() {
     pwArray.push("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z")
   }
 
-  else if (uppercase === true) {
+  if (uppercase === true) {
     pwArray.push("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z")
   }
 
-  else if (numeric === true) {
+  if (numeric === true) {
     pwArray.push("0", "1", "2", "3", "4", "5", "6", "7", "8", "9");
   }
 
-  else if (special === true) {
+  if (special === true) {
     pwArray.push("!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "+", "=", "{", "}", "[", "]", ";", ":", "'", "?", "/", "-", "_", "<", ">", ",", "|", "~");
   }
 
@@ -105,6 +114,7 @@ function addToArray() {
   }
   console.log(pwArray);
 }
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
