@@ -6,6 +6,7 @@ var numeric = false;
 var special = false;
 var pwArray = [];
 var pwPlace = "";
+var breakPoint = true;
 
 // Write password to the #password input
 function writePassword() {
@@ -13,6 +14,13 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+  lowercase = false;
+  uppercase = false;
+  numeric = false;
+  special = false;
+  pwArray = [];
+  pwPlace = "";
+  breakPoint = true;
 
 }
 
@@ -28,15 +36,16 @@ function generatePassword() {
     numericModifier();
     specialModifier();
     addToArray();
-    for(var i =0; i<passwordLength; i++){
-      var arraySelector= Math.floor(Math.random() * pwArray.length);
-      console.log(pwArray[arraySelector]);
-      pwPlace.concat(pwArray[arraySelector]);
+    if (breakPoint === true) {
+      for (var i = 0; i < passwordLength; i++) {
+        var arraySelector = Math.floor(Math.random() * pwArray.length);
+        console.log(pwArray[arraySelector]);
+        pwPlace += pwArray[arraySelector];
+        console.log(pwPlace);
+      }
     }
-    console.log(pwPlace);
-    return pwPlace;
   }
-  
+  return pwPlace;
 }
 
 //function to prompt user to include lowercase characters
@@ -111,6 +120,7 @@ function addToArray() {
 
   if (lowercase === false && uppercase === false && numeric === false && special === false) {
     alert("You did not select any characters. Please try again.");
+    breakPoint = false;
   }
   console.log(pwArray);
 }
