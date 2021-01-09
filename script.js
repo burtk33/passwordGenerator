@@ -1,4 +1,4 @@
-// Assignment Code
+// Assignment Code, Global Variables
 var generateBtn = document.querySelector("#generate");
 var lowercase = false;
 var uppercase = false;
@@ -14,6 +14,8 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+
+  //resetting variables so generator can be run indefinitely without refreshing the page
   lowercase = false;
   uppercase = false;
   numeric = false;
@@ -27,6 +29,8 @@ function writePassword() {
 //generate password master function
 function generatePassword() {
   var passwordLength = prompt("How long should the password be?");
+
+  // making sure character length is within range
   if (passwordLength < 8 || passwordLength > 128) {
     alert("Password must be between 8 and 128 characters!");
   }
@@ -53,11 +57,9 @@ function lowercaseModifier() {
   var includeLower = prompt("Do you want the password to include lowercase letters? (y/n)?")
   if (includeLower === "y") {
     lowercase = true;
-    alert("Your generated password will include lowercase characters.");
   }
   else {
     lowercase = false;
-    alert("Your generated password will not include lowercase characters.");
   }
 }
 
@@ -66,11 +68,9 @@ function uppercaseModifier() {
   var includeUpper = prompt("Do you want the password to include uppercase letters? (y/n)?")
   if (includeUpper === "y") {
     uppercase = true;
-    alert("Your generated password will include uppercase characters.");
   }
   else {
     uppercase = false;
-    alert("Your generated password will not include uppercase characters.");
   }
 }
 
@@ -79,11 +79,9 @@ function numericModifier() {
   var includeNum = prompt("Do you want the password to include numeric values? (y/n)?")
   if (includeNum === "y") {
     numeric = true;
-    alert("Your generated password will include numeric values.");
   }
   else {
     numeric = false;
-    alert("Your generated password will not include numeric values.");
   }
 }
 
@@ -92,11 +90,9 @@ function specialModifier() {
   var includeSpecial = prompt("Do you want the password to include special characters? (y/n)?")
   if (includeSpecial === "y") {
     special = true;
-    alert("Your generated password will include special characters.");
   }
   else {
     special = false;
-    alert("Your generated password will not include special characters.");
   }
 }
 
@@ -118,6 +114,7 @@ function addToArray() {
     pwArray.push("!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "+", "=", "{", "}", "[", "]", ";", ":", "'", "?", "/", "-", "_", "<", ">", ",", "|", "~");
   }
 
+  // a break clause in the function if no characters are selected
   if (lowercase === false && uppercase === false && numeric === false && special === false) {
     alert("You did not select any characters. Please try again.");
     breakPoint = false;
