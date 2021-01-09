@@ -3,6 +3,7 @@ var generateBtn = document.querySelector("#generate");
 var lowercase = false;
 var uppercase = false;
 var numeric = false;
+var special = false;
 
 // Write password to the #password input
 function writePassword() {
@@ -23,8 +24,8 @@ function generatePassword() {
     lowercaseModifier();
     uppercaseModifier();
     numericModifier();
+    specialModifier();
   }
-
 }
 
 //function to prompt user to include lowercase characters
@@ -53,7 +54,7 @@ function uppercaseModifier() {
   }
 }
 
-//function to prompt user to include upper case characters
+//function to prompt user to include numeric values
 function numericModifier() {
   var includeNum = prompt("Do you want the password to include uppercase letters? (y/n)?")
   if (includeNum === "y") {
@@ -63,6 +64,19 @@ function numericModifier() {
   else {
     numeric = false;
     alert("Your generated password will not include numeric values.");
+  }
+}
+
+//function to prompt user to include special characters
+function specialModifier() {
+  var includeSpecial = prompt("Do you want the password to include special characters? (y/n)?")
+  if (includeSpecial === "y") {
+    special = true;
+    alert("Your generated password will include special characters.");
+  }
+  else {
+    special = false;
+    alert("Your generated password will not include special characters.");
   }
 }
 
