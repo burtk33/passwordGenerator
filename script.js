@@ -4,6 +4,7 @@ var lowercase = false;
 var uppercase = false;
 var numeric = false;
 var special = false;
+var pwArray = [];
 
 // Write password to the #password input
 function writePassword() {
@@ -25,6 +26,7 @@ function generatePassword() {
     uppercaseModifier();
     numericModifier();
     specialModifier();
+    addToArray();
   }
 }
 
@@ -78,6 +80,30 @@ function specialModifier() {
     special = false;
     alert("Your generated password will not include special characters.");
   }
+}
+
+// adding character values that use wishes to include to an array
+function addToArray() {
+  if (lowercase === true) {
+    pwArray.push("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z")
+  }
+
+  else if (uppercase === true) {
+    pwArray.push("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z")
+  }
+
+  else if (numeric === true) {
+    pwArray.push("0", "1", "2", "3", "4", "5", "6", "7", "8", "9");
+  }
+
+  else if (special === true) {
+    pwArray.push("!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "+", "=", "{", "}", "[", "]", ";", ":", "'", "?", "/", "-", "_", "<", ">", ",", "|", "~");
+  }
+
+  if (lowercase === false && uppercase === false && numeric === false && special === false) {
+    alert("You did not select any characters. Please try again.");
+  }
+  console.log(pwArray);
 }
 
 // Add event listener to generate button
