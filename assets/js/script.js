@@ -84,7 +84,7 @@ function specialModifier() {
   }
 }
 
-// adding character values that use wishes to include to an array
+// adding character values that user wishes to include to an array
 function addToArray() {
   if (lowercase === true) {
     pwArray.push("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z")
